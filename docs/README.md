@@ -586,6 +586,12 @@ RSSHub 提供下列 API 接口:
 
 </route>
 
+<route name="小册" author="xyqfer" example="/juejin/books" path="/juejin/books"/>
+
+> 掘金小册需要付费订阅, RSS 仅做更新提醒, 不含付费内容.
+
+<route name="沸点" author="xyqfer" example="/juejin/pins" path="/juejin/pins"/>
+
 ### Dockone
 
 <route name="周报" author="csi0n" example="/dockone/weekly" path="/dockone/weekly"/>
@@ -615,6 +621,7 @@ GitHub 官方也提供了一些 RSS:
 -   仓库 releases: https://github.com/:owner/:repo/releases.atom
 -   仓库 commits: https://github.com/:owner/:repo/commits.atom
 -   用户动态: https://github.com/:user.atom
+-   专属动态: https://github.com/:user.private.atom?token=:secret (登录后在[仪表盘页面](https://github.com)找到 **Subscribe to your news feed** 字样即可)
 
 :::
 
@@ -841,6 +848,17 @@ GitHub 官方也提供了一些 RSS:
 
 <route name="番剧" author="xyqfer" example="/acfun/bangumi/5022158" path="/acfun/bangumi/:id" :paramsDesc="['番剧 id']"/>
 
+::: tip 提示
+
+番剧 id 不包含开头的 aa。
+例如：http://www.acfun.cn/bangumi/aa5022158 的番剧 id 是 5022158，不包括开头的 aa。
+
+:::
+
+### Sankaku Complex
+
+<route name="Post" author="xyqfer" example="/sankakucomplex/post" path="/sankakucomplex/post"/>
+
 ## 图片
 
 ### 妹子图
@@ -863,13 +881,17 @@ GitHub 官方也提供了一些 RSS:
 
 ### 煎蛋
 
-<route name="无聊图" author="Xuanwo" example="/jandan/pic" path="/jandan/:sub_model" :paramsDesc="['煎蛋板块名称']"/>
+<route name="无聊图" author="Xuanwo xyqfer" example="/jandan/pic" path="/jandan/:sub_model" :paramsDesc="['煎蛋板块名称']"/>
+
+| 无聊图 | 无聊图热榜 | 4 小时热榜 |
+| ------ | ---------- | ---------- |
+| pic    | top        | top-4h     |
 
 <route name="妹子图" author="kobemtl xyqfer" example="/jandan/ooxx" path="/jandan/:sub_model" :paramsDesc="['煎蛋板块名称']"/>
 
-| 妹子图 | 热榜     |
-| ------ | -------- |
-| ooxx   | top-ooxx |
+| 妹子图 | 妹子图热榜 |
+| ------ | ---------- |
+| ooxx   | top-ooxx   |
 
 ### 喷嚏
 
@@ -1534,7 +1556,7 @@ Category 列表:
 
 ### FT 中文网
 
-<route name="FT 中文网" author="HenryQW" example="/ft/chinese/hotstoryby7day" path="/ft/chinese/:channel?" :paramsDesc="['频道, 缺省为每日更新']">
+<route name="FT 中文网" author="HenryQW xyqfer" example="/ft/chinese/hotstoryby7day" path="/ft/:language/:channel?" :paramsDesc="['语言，简体`chinese`，繁体`traditional`', '频道, 缺省为每日更新']">
 
 ::: tip 提示
 
@@ -1583,6 +1605,10 @@ Solidot 提供的 feed:
 
 </route>
 
+### 极客公园
+
+<route name="全球快讯" author="xyqfer" example="/geekpark/breakingnews" path="/geekpark/breakingnews" />
+
 ## 预报预警
 
 ### 停水通知
@@ -1614,6 +1640,10 @@ Solidot 提供的 feed:
 可通过全局过滤参数订阅您感兴趣的地区.
 
 </route>
+
+### 香港天文台
+
+<route name="Current Weather Report" author="calpa" example="/hko/weather" path="/hko/weather"/>
 
 ## 出行旅游
 
@@ -1833,6 +1863,10 @@ IATA 国际航空运输协会机场代码, 参见[维基百科 国际航空运�
 
 <route name="讨论区" author="Chingyat" example="/qidian/forum/1010400217" path="/qidian/forum/:id" :paramsDesc="['小说 id, 可在对应小说页 URL 中找到']"/>
 
+### 刺猬猫
+
+<route name="章节" author="Netrvin" example="/ciweimao/chapter/100045750" path="/ciweimao/chapter/:id" :paramsDesc="['小说 id, 可在对应小说页 URL 中找到']"/>
+
 ### 快眼看书
 
 <route name="小说更新" author="squkw" example="/novel/booksky/98619" path="/novel/booksky/:id" :paramsDesc="['小说 id, 可在对应小说页 URL 中找到, 例如 `98619`']">
@@ -2043,6 +2077,8 @@ IATA 国际航空运输协会机场代码, 参见[维基百科 国际航空运�
 
 </route>
 
+<route name="Google Doodles" author="xyqfer" example="/google/doodles/zh-CN" path="/google/doodles/:language?" :paramsDesc="['语言，默认为`zh-CN`简体中文，如需其他语言值可从[Google Doodles 官网](https://www.google.com/doodles)获取']" />
+
 ### 果壳网
 
 <route name="科学人" author="alphardex" example="/guokr/scientific" path="/guokr/scientific"/>
@@ -2147,3 +2183,15 @@ IATA 国际航空运输协会机场代码, 参见[维基百科 国际航空运�
 1. 复制查询结果 URL 中`?`后的部分，例如 `https://www.autotrader.co.uk/car-search?radius=50&postcode=sw1a1aa&onesearchad=Used&onesearchad=Nearly%20New&onesearchad=New&price-to=9000&year-from=2012&body-type=Hatchback&transmission=Automatic&exclude-writeoff-categories=on` 则为 `radius=50&postcode=sw1a1aa&onesearchad=Used&onesearchad=Nearly%20New&onesearchad=New&price-to=9000&year-from=2012&body-type=Hatchback&transmission=Automatic&exclude-writeoff-categories=on`
 
 </route>
+
+### 联合国
+
+<route name="安理会否决了决议" author="HenryQW" example="/un/scveto" path="/un/scveto"/>
+
+### 百度
+
+<route name="百度趣画" author="xyqfer" example="/baidu/doodles" path="/baidu/doodles"/>
+
+### 搜狗
+
+<route name="搜狗特色LOGO" author="xyqfer" example="/sogou/doodles" path="/sogou/doodles"/>

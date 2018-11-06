@@ -143,6 +143,8 @@ router.get('/ncm/djradio/:id', require('./routes/ncm/djradio'));
 router.get('/juejin/category/:category', require('./routes/juejin/category'));
 router.get('/juejin/tag/:tag', require('./routes/juejin/tag'));
 router.get('/juejin/trending/:category/:type', require('./routes/juejin/trending'));
+router.get('/juejin/books', require('./routes/juejin/books'));
+router.get('/juejin/pins', require('./routes/juejin/pins'));
 
 // 自如
 router.get('/ziroom/room/:city/:iswhole/:room/:keyword', require('./routes/ziroom/room'));
@@ -398,6 +400,9 @@ router.get('/keep/user/:id', require('./routes/keep/user'));
 router.get('/qidian/chapter/:id', require('./routes/qidian/chapter'));
 router.get('/qidian/forum/:id', require('./routes/qidian/forum'));
 
+// 刺猬猫
+router.get('/ciweimao/chapter/:id', require('./routes/ciweimao/chapter'));
+
 // 中国美术馆
 router.get('/namoc/announcement', require('./routes/namoc/announcement'));
 router.get('/namoc/news', require('./routes/namoc/news'));
@@ -411,8 +416,11 @@ router.get('/dongqiudi/result/:team', require('./routes/dongqiudi/result'));
 router.get('/dongqiudi/team_news/:team', require('./routes/dongqiudi/team_news'));
 router.get('/dongqiudi/player_news/:id', require('./routes/dongqiudi/player_news'));
 
-// 维基百科
+// 维基百科 Wikipedia
 router.get('/wikipedia/mainland', require('./routes/wikipedia/mainland'));
+
+// 联合国 United Nations
+router.get('/un/scveto', require('./routes/un/scveto'));
 
 // 雪球
 router.get('/xueqiu/user/:id/:type?', require('./routes/xueqiu/user'));
@@ -463,6 +471,7 @@ router.get('/nvidia/webdriverupdate', require('./routes/nvidia/webdriverupdate')
 
 // Google
 router.get('/google/scholar/:query', require('./routes/google/scholar'));
+router.get('/google/doodles/:language?', require('./routes/google/doodles'));
 
 // Awesome Pigtals
 router.get('/pigtails', require('./routes/pigtails'));
@@ -660,7 +669,7 @@ router.get('/nhk/news_web_easy', require('./routes/nhk/news_web_easy'));
 router.get('/bbc/:channel?', require('./routes/bbc/index'));
 
 // FT 中文网
-router.get('/ft/chinese/:channel?', require('./routes/ft/chinese'));
+router.get('/ft/:language/:channel?', require('./routes/ft/channel'));
 
 // The Verge
 router.get('/verge', require('./routes/verge/index'));
@@ -727,5 +736,20 @@ router.get('/acfun/bangumi/:id', require('./routes/acfun/bangumi'));
 
 // Auto Trader
 router.get('/autotrader/:query', require('./routes/autotrader'));
+
+// 极客公园
+router.get('/geekpark/breakingnews', require('./routes/geekpark/breakingnews'));
+
+// 百度
+router.get('/baidu/doodles', require('./routes/baidu/doodles'));
+
+// 搜狗
+router.get('/sogou/doodles', require('./routes/sogou/doodles'));
+
+// 香港天文台
+router.get('/hko/weather', require('./routes/hko/weather'));
+
+// sankakucomplex
+router.get('/sankakucomplex/post', require('./routes/sankakucomplex/post'));
 
 module.exports = router;
